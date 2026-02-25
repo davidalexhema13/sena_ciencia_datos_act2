@@ -18,5 +18,37 @@ En este ejercicio debes crear un DataFrame agrupando información sobre **pelíc
 st.subheader("Tu resultado:")
 # ESTUDIANTE: Escribe tu código a continuación
 
+# Crear las Series
+titulos = pd.Series([
+    "Inception",
+    "The Matrix",
+    "Interstellar",
+    "Parasite"
+])
+
+directores = pd.Series([
+    "Christopher Nolan",
+    "Lana y Lilly Wachowski",
+    "Christopher Nolan",
+    "Bong Joon-ho"
+])
+
+años = pd.Series([
+    2010,
+    1999,
+    2014,
+    2019
+])
+
+# Unir las Series en un DataFrame
+df_peliculas = pd.DataFrame({
+    "Título": titulos,
+    "Director": directores,
+    "Año de Estreno": años
+})
+
+# Mostrar el DataFrame en Streamlit
+st.dataframe(df_peliculas)
+
 
 # st.dataframe(...)
