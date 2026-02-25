@@ -20,5 +20,32 @@ st.subheader("Tu resultado:")
 # ESTUDIANTE: Escribe tu código a continuación
 # Recuerda usar la librería requests que ya está importada arriba
 
+try:
+    # URL de la API
+    url = "https://pokeapi.co/api/v2/pokemon?limit=10"
+
+    # Hacer petición GET
+    response = requests.get(url)
+
+    # Verificar que la petición fue exitosa
+    if response.status_code == 200:
+        # Convertir a JSON
+        data = response.json()
+
+        # Extraer la lista "results"
+        lista_pokemon = data["results"]
+
+        # Convertir a DataFrame
+        df_pokemon = pd.DataFrame(lista_pokemon)
+
+        # Mostrar en Streamlit
+        st.dataframe(df_pokemon)
+
+    else:
+        st.error(f"La petición falló. Código de estado: {response.status_code}")
+
+except Exception as e:
+    st.error(f"Ocurrió un error al conectar con la API: {e}")
+
 
 # st.dataframe(...)

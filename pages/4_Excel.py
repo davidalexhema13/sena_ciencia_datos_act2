@@ -17,6 +17,15 @@ st.info("💡 Nota: Asegúrate de tener el archivo Excel en la misma ruta antes 
 
 st.subheader("Tu resultado:")
 # ESTUDIANTE: Escribe tu código a continuación
+try:
+    # Leer archivo Excel
+    df_excel = pd.read_excel("reporte_financiero.xlsx")
+
+    # Mostrar dataframe en la app
+    st.dataframe(df_excel)
+
+except FileNotFoundError:
+    st.error("El archivo reporte_financiero.xlsx no se encontró. Verifica que esté en la carpeta del proyecto.")
 
 
 # st.dataframe(...)
